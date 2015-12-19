@@ -1,0 +1,4 @@
+source 'https://rubygems.org'
+
+gem 'rake', '~> 10.4', '>= 10.4.2'
+gem 'swagger-blocks_ext', path: '/swagger-blocks_ext'

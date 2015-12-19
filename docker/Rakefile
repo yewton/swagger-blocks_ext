@@ -1,0 +1,24 @@
+# coding: utf-8
+require 'rubygems'
+require 'bundler/setup'
+require 'swagger/blocks_ext'
+require 'yaml'
+
+namespace :swagger do
+  desc "generate swagger spec"
+  task :gen, %w(out api_spec descriptions) do |_, args|
+    dir = File.dirname(args.out)
+    file = File.basename(args.out)
+    path = File.join(dir, file)
+
+    if args.descriptions
+      Swagger::BlocksExt.configure do |c|
+        c.descriptions_path = args.descriptions
+      end
+    end
+
+    require args.api_spec
+    FileUtils.mkdir_p(dir)
+    File.open(path, 'w') {|f| f.write(Swagger::BlocksExt.to_yaml) }
+  end
+end

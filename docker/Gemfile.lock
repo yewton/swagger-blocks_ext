@@ -1,0 +1,21 @@
+PATH
+  remote: /swagger-blocks_ext
+  specs:
+    swagger-blocks_ext (0.1.0)
+      swagger-blocks (~> 1.2)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    rake (10.4.2)
+    swagger-blocks (1.2.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  rake (~> 10.4, >= 10.4.2)
+  swagger-blocks_ext!
+
+BUNDLED WITH
+   1.10.6
