@@ -2,7 +2,7 @@
 
 Some extensions to [swagger-blocks](https://github.com/fotinakis/swagger-blocks "swagger-blocks").
 
-1. Enable to find all `Swagger::Blocks` instances from `ObjectSpace` then output the spec( **node: this may slows your Application** )
+1. Enable to find all `Swagger::Blocks` instances from `ObjectSpace` then output the spec( **note: this may slows your Application** )
 1. Enable to edit descriptions in separate files(to edit it with your favorite Markdown editor)
 
 ## Installation
