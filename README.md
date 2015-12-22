@@ -28,7 +28,7 @@ require 'swagger/blocks_ext'
 require '/path/to/your/swagger-blocks/root'
 
 Swagger::BlocksExt.configure do |c|
-  c.descriptions_path = File.join(__dir__, 'descriptions') // where to put your descriptions file
+  c.descriptions_path = File.join(__dir__, 'descriptions') # where to put your descriptions file
 end
 
 class Root
@@ -40,7 +40,7 @@ class Root
     info do
       key :version, '1.0.0'
       key :title, 'Swagger Petstore'
-      key :description, md('introduction') + "\n\n" + md(ENV['RAILS_ENV'])x
+      key :description, md('introduction') + "\n\n" + md(ENV['RAILS_ENV'])
       key :termsOfService, 'http://swagger.io/terms/'
     end
     key :host, 'petstore.swagger.io'
