@@ -28,7 +28,25 @@ require 'swagger/blocks_ext'
 require '/path/to/your/swagger-blocks/root'
 
 Swagger::BlocksExt.configure do |c|
-  c.descriptions_path = File.join(__dir__, 'descriptions')
+  c.descriptions_path = File.join(__dir__, 'descriptions') // where to put your descriptions file
+end
+
+class Root
+  include Swagger::Blocks
+  using Swagger::BlocksExt::NodeExt
+
+  swagger_root do
+    key :swagger, '2.0'
+    info do
+      key :version, '1.0.0'
+      key :title, 'Swagger Petstore'
+      key :description, md('introduction') + "\n\n" + md(ENV['RAILS_ENV'])x
+      key :termsOfService, 'http://swagger.io/terms/'
+    end
+    key :host, 'petstore.swagger.io'
+    key :basePath, '/api'
+    key :schemes, ['http']
+  end
 end
 
 File.open(path, 'w') {|f| f.write(Swagger::BlocksExt.to_yaml) }
@@ -47,7 +65,7 @@ docker run --rm \
 
 What happens?
 
-1. require `/path/to/your/swagger-blocks/root`
+1. require `/path/to/your/swagger-blocks/root.rb`
 1. set descriptions directory configuration to `/path/to/your/descriptions`
 1. generated swagger spec is in `/path/to/out`
 
