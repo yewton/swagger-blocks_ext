@@ -28,7 +28,7 @@ require 'swagger/blocks_ext'
 require '/path/to/your/swagger-blocks/root'
 
 Swagger::BlocksExt.configure do |c|
-  c.descriptions_path = File.join(__dir__, 'descriptions') # where to put your descriptions file
+  c.descriptions_path = File.join(__dir__, 'descriptions') # where to put your description files
 end
 
 class Root
