@@ -1,6 +1,9 @@
 # Swagger::BlocksExt
 
-TODO
+Some extensions to [swagger-blocks](https://github.com/fotinakis/swagger-blocks "swagger-blocks").
+
+1. Enable to find all `Swagger::Blocks` instances from `ObjectSpace` then output the spec
+1. Enable to edit descriptions in separate files(to edit it with your favorite Markdown editor)
 
 ## Installation
 
@@ -20,7 +23,33 @@ Or install it yourself as:
 
 ## Usage
 
-TODO
+```ruby
+require 'swagger/blocks_ext'
+require '/path/to/your/swagger-blocks/root'
+
+Swagger::BlocksExt.configure do |c|
+  c.descriptions_path = File.join(__dir__, 'descriptions')
+end
+
+File.open(path, 'w') {|f| f.write(Swagger::BlocksExt.to_yaml) }
+```
+
+### Docker
+
+```sh
+docker run --rm \
+       -v /path/to/your/swagger-blocks/:/blocks \
+       -v /path/to/your/descriptions:/descriptions \
+       -v /path/to/out:/out \
+       yewton/swagger-blocks_ext \
+       swagger:gen[/out/swagger.yaml,/blocks/root,/descriptions]
+```
+
+What happens?
+
+1. require `/path/to/your/swagger-blocks/root`
+1. set descriptions directory configuration to `/path/to/your/descriptions`
+1. generated swagger spec is in `/path/to/out`
 
 ## Development
 
