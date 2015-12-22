@@ -1,3 +1,5 @@
+[![Circle CI](https://circleci.com/gh/yewton/swagger-blocks_ext.svg?style=svg)](https://circleci.com/gh/yewton/swagger-blocks_ext)
+
 # Swagger::BlocksExt
 
 Some extensions to [swagger-blocks](https://github.com/fotinakis/swagger-blocks "swagger-blocks").
